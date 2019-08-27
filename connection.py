@@ -12,7 +12,10 @@ class Connection:
     def __init__(self, linked_device, update_ui_cb, activate_ndsi_backend_cb):
         self.update_ui_cb = update_ui_cb
         self.activate_ndsi_backend_cb = activate_ndsi_backend_cb
-        self.network = ndsi.Network(callbacks=(self.on_event,))
+        self.network = ndsi.Network(
+            formats={ndsi.DataFormat.V4},
+            callbacks=(self.on_event,)
+        )
         self.network.start()
         self.sensor = GazeSensor(self.network, linked_device)
 
