@@ -1,6 +1,6 @@
 # Pupil Invisible Gaze Preview
 
-[Pupil Invisible Gaze Preview][this-repo] is a deprecated [Pupil Capture][pupil-capture-docs] [Plugin][pupil-plugin-docs] that works with [Pupil Invisible][pupil-invisible].
+[Pupil Invisible Gaze Preview][this-repo] is a **deprecated** [Pupil Capture][pupil-capture-docs] [Plugin][pupil-plugin-docs] that works with [Pupil Invisible][pupil-invisible].
 
 Please use the [Pupil Invisible Monitor][pupil-invisible-monitor] app instead.
 
