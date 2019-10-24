@@ -13,6 +13,9 @@ Follow these [instructions][pupil-plugin-docs] to install the plugin.
 1. Start Pupil Capture.
 1. Enable the `PI Preview` plugin in the Plugin Manager menu.
 1. Link your Pupil Invisible device by selecting it in the `PI Preview` menu.
+1. In General Settings disable `Detect eye 0` and `Detect eye 1`.
+
+Note that recording a Pupil Invisible stream in Pupil Capture is currently not supported.
 
 [this-repo]: https://github.com/pupil-labs/pi_preview
 [pupil-capture-docs]: https://docs.pupil-labs.com/core/software/pupil-capture/
