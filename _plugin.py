@@ -19,9 +19,7 @@ class PI_Preview(Plugin):
     order = 0.02  # ensures init after all plugins
 
     def __init__(
-        self,
-        g_pool,
-        linked_device=...,
+        self, g_pool, linked_device=...,
     ):
         super().__init__(g_pool)
 
@@ -30,10 +28,7 @@ class PI_Preview(Plugin):
         else:
             linked_device = Linked_Device(*linked_device)
 
-        self.connection = Connection(
-            linked_device,
-            update_ui_cb=self.update_ndsi_menu,
-        )
+        self.connection = Connection(linked_device, update_ui_cb=self.update_ndsi_menu,)
         self._num_prefix_elements = 0
 
     def recent_events(self, events):

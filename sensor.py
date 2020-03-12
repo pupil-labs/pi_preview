@@ -115,4 +115,3 @@ class GazeSensor:
                     "host_name", self, label="Linked device", setter=lambda _: None
                 )
             )
-
