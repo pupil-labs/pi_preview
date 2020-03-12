@@ -1,8 +1,8 @@
 import logging
 
-import glfw
 from pyglui import ui
 
+import zmq_tools
 from plugin import Plugin
 
 from pi_preview import Linked_Device
@@ -30,11 +30,17 @@ class PI_Preview(Plugin):
 
         self.connection = Connection(linked_device, update_ui_cb=self.update_ndsi_menu,)
         self._num_prefix_elements = 0
+        self.gaze_pub = zmq_tools.Msg_Streamer(
+            self.g_pool.zmq_ctx, self.g_pool.ipc_pub_url
+        )
 
     def recent_events(self, events):
         gaze = self.connection.fetch_data()
 
         if gaze:
+            for gaze_datum in gaze:
+                self.gaze_pub.send(gaze_datum)
+
             if "gaze" not in events:
                 events["gaze"] = gaze
             else:
@@ -55,6 +61,7 @@ class PI_Preview(Plugin):
         self.connection.add_ui_elements(self.menu)
 
     def cleanup(self):
+        self.gaze_pub = None
         self.connection.close()
         self.connection = None
 
